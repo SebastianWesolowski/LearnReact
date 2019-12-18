@@ -1,4 +1,5 @@
 import React from 'react';
+import {string} from 'prop-types';
 import './ListItem.css';
 
 const ListItem = ({
@@ -23,5 +24,13 @@ const ListItem = ({
         </li>
     )
 
-
+    ListItem.propTypes ={
+        image:string.isRequired, 
+        name: string.isRequired, 
+        description: string,
+        twitterLink: string.isRequired,
+    };
+    ListItem.defaultProps ={
+        description: 'One of the React Crator'
+    }
 export default ListItem
