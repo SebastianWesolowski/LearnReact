@@ -2,7 +2,7 @@ import React from 'react';
 import ListWrapper from './components/ListWrpapper/ListWraper';
 
 import './index.css';
-const initialStateArray = [
+const initialStateItems = [
     {
         image: 'https://picsum.photos/150/150?random=1',
         name: 'Dan Abramov',
@@ -28,9 +28,10 @@ const initialStateArray = [
     }];
 class App extends React.Component {
     state = {
-        items: [...initialStateArray],
+        items: [...initialStateItems],
 
-    }
+    };
+
     render() {
         return (
             <div>
@@ -39,6 +40,6 @@ class App extends React.Component {
 
         )
     }
-};
+}
 
 export default App;
