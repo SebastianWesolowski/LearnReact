@@ -1,10 +1,10 @@
 import React from "react";
-
+import AppContext from "../../context";
 const ArticleViews = () => {
   return (
-    <>
-      <p>This is an Atruicle ViewTest</p>
-    </>
+    <AppContext.Consumer>
+      {context => <p>This is an Atruicle ViewTest, {context}</p>}
+    </AppContext.Consumer>
   );
 };
 
