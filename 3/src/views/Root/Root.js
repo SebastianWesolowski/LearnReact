@@ -12,26 +12,20 @@ import TwitterView from "../TwitterView/TwitterView";
 import AppContext from "../../context";
 class Root extends React.Component {
   state = {
-    // items: [...initialStateItems],
-    isModalOpen: true,
-    name: "Test"
+    twitter: [],
+    article: [],
+    note: [],
+    isModalOpen: false
   };
 
-  addItem = e => {
+  addItem = (e, newItem) => {
     e.preventDefault();
 
-    const newItem = {
-      name: e.target[0].value,
-      twitterLink: e.target[1].value,
-      image: e.target[2].value,
-      description: e.target[3].value
-    };
-
     this.setState(prevState => ({
-      items: [...prevState.items, newItem]
+      [newItem.type]: [...prevState[newItem.type], newItem]
     }));
 
-    e.target.reset();
+    this.closeModal();
   };
 
   openModal = () => {
@@ -48,9 +42,13 @@ class Root extends React.Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const contextElement = {
+      ...this.state,
+      addItem: this.addItem
+    };
     return (
       <BrowserRouter>
-        <AppContext.Provider value={this.state.name}>
+        <AppContext.Provider value={contextElement}>
           <Header openModalFn={this.openModal} />
           <h1>Hello</h1>
           <Switch>
