@@ -1,7 +1,11 @@
 import React from "react";
 
 const NotesView = () => {
-  return <>This is an Notes View</>;
+  return (
+    <>
+      <p>This is an Notes View</p>
+    </>
+  );
 };
 
 export default NotesView;

@@ -1,5 +1,4 @@
 .wrapper {
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -15,5 +14,14 @@
 
   button {
     margin-top: 50px;
+  }
+
+  .radioContainer {
+    display: inline;
+    padding: 20px;
+  }
+
+  label {
+    margin-right: 30px;
   }
 }

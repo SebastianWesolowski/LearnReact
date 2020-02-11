@@ -1,7 +1,11 @@
 import React from "react";
 
 const ArticleViews = () => {
-  return <>This is an Atruicle View</>;
+  return (
+    <>
+      <p>This is an Atruicle ViewTest</p>
+    </>
+  );
 };
 
 export default ArticleViews;

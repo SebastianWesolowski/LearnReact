@@ -1,7 +1,11 @@
 import React from "react";
 
 const TwitterViews = () => {
-  return <>This is an Twitter View</>;
+  return (
+    <>
+      <p>This is an Twitter View</p>
+    </>
+  );
 };
 
 export default TwitterViews;
