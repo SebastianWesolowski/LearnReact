@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Button.module.scss";
+import PropTypes from "prop-types";
 
-const Button = ({ children, href, t }) => {
+const Button = ({ children, href, secondary, ...props }) => {
+  const ButtonClass = secondary ? styles.secondary : styles.button;
+
   return (
     <>
       {href ? (
@@ -9,17 +12,23 @@ const Button = ({ children, href, t }) => {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={styles.button}
+          className={ButtonClass}
         >
           {children}
         </a>
       ) : (
-        <button className={styles.button} type="submit">
+        <button className={ButtonClass} type="submit" {...props}>
           {children}
         </button>
       )}
     </>
   );
+};
+
+Button.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string,
+  secondary: PropTypes.bool
 };
 
 export default Button;

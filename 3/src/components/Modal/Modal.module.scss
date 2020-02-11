@@ -1,0 +1,15 @@
+.wrapper {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 60vw;
+  height: 70vh;
+  background: #fff;
+  box-shadow: 0 20px 40px -15px rgba(#818181, 0.5);
+  position: fixed;
+  padding: 50px 80px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

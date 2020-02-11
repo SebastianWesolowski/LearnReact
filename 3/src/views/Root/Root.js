@@ -2,9 +2,10 @@ import React from "react";
 // import List from "../../components/List/List";
 // import Form from "../../components/Form/Form";
 
-import "./index.css";
-import { BrowserRouter, Route } from "react-router-dom";
-
+import "./root.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import Modal from "../../components/Modal/Modal";
 import ArticleView from "../ArticlesView/ArticlesView";
 import NotesView from "../NotesView/NotesViews";
 import TwitterView from "../TwitterView/TwitterView";
@@ -38,9 +39,10 @@ import TwitterView from "../TwitterView/TwitterView";
 //   }
 // ];
 class Root extends React.Component {
-  // state = {
-  //   items: [...initialStateItems]
-  // };
+  state = {
+    // items: [...initialStateItems],
+    isModalOpen: false
+  };
 
   addItem = e => {
     e.preventDefault();
@@ -58,15 +60,31 @@ class Root extends React.Component {
 
     e.target.reset();
   };
+
+  openModal = () => {
+    this.setState({
+      isModalOpen: true
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      isModalOpen: false
+    });
+  };
+
   render() {
+    const { isModalOpen } = this.state;
     return (
       <BrowserRouter>
-        <>
-          <h1>Hello</h1>
+        <Header openModalFn={this.openModal} />
+        <h1>Hello</h1>
+        <Switch>
           <Route exact path="/" component={TwitterView} />
-          <Route path="/articles" component={ArticleView} />
+          <Route path="/article" component={ArticleView} />
           <Route path="/notes" component={NotesView} />
-        </>
+        </Switch>
+        {isModalOpen && <Modal closeModalFn={this.closeModal} />}
       </BrowserRouter>
     );
   }
