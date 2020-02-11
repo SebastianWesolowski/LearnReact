@@ -1,9 +1,10 @@
 import React from "react";
 import AppContext from "../../context";
+import List from "../../components/List/List";
 const ArticleViews = () => {
   return (
     <AppContext.Consumer>
-      {context => <p>This is an Atruicle ViewTest, {console.log(context)}</p>}
+      {context => <List items={context.article} />}
     </AppContext.Consumer>
   );
 };
