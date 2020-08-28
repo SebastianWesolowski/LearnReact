@@ -25,10 +25,10 @@ ListItem.propTypes = {
   image: PropsTypes.string,
   name: PropsTypes.string.isRequired,
   description: PropsTypes.string,
-  twitterLink: PropsTypes.string.isRequired
+  twitterLink: PropsTypes.string.isRequired,
 };
 ListItem.defaultProps = {
   description: "One of the React Crator",
-  image: null
+  image: null,
 };
 export default ListItem;
